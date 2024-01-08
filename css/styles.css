@@ -727,6 +727,7 @@ text {
   border-radius: 4px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 72px 24px 24px;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .modal-window-close {
@@ -843,6 +844,9 @@ text {
 .modal-form-input:hover + svg,
 .modal-form-input:focus + svg {
   fill: #4d5ae5;
+  background-color: #404bbf;
+  border: none;
+  background-color: #404bbf;
 }
 
 /* modal-form-textarea-box */
@@ -871,6 +875,7 @@ text {
 .modal-form-input:hover,
 .modal-form-input:focus {
   border-color: #4d5ae5;
+  fill: #ffffff;
 }
 
 .modal-form-checkbox-box {
@@ -906,4 +911,6 @@ input[type="checkbox"]:checked + label > span {
   background-color: #404bbf;
   fill: #f4f4fd;
   border: none;
+  width: 100%;
+  border-color: #4d5ae5;
 }
