@@ -14,11 +14,15 @@ p {
 }
 
 /* #region: normalize */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
+  /* position: relative; */
   color: #434455;
   background-color: #ffffff;
-  background: var(--CLOUD, #ffffff);
+  /* background: var(--CLOUD, #ffffff); */
   /* font-family: 'Raleway', sans-serif; */
   font-family: "Roboto", sans-serif;
 }
@@ -29,13 +33,6 @@ ul {
   padding: 0;
   margin: 0;
 }
-
-/* ul {
-  margin-top: 0;
-  margin-bottom: 0;
-padding-left: 0;
-}
- */
 
 h1,
 h2,
@@ -86,14 +83,6 @@ img {
   margin: 0 auto;
   padding: 0 15px;
   max-width: 1158px;
-  /* для центрування контейнера на сторінці*/
-  /* Для цього класу заданий стиль */
-  /*для налаштування внутрішніх відступів для контенту (можна використовувати запис */
-  /*
-  padding: 0 15px 0 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-*/
 }
 
 /* #endregion: base */
@@ -108,60 +97,38 @@ img {
 
 .version {
   position: fixed;
-  right: 0px;
+  right: 4px;
   top: 4px;
   display: block;
   font-size: 9px;
   background-color: orange;
   padding: 2px 8px;
+  z-index: 11111;
+  border: 1px solid #404bbf;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
-/*
-Для хедера в класі заданий стиль 
-для визначення тіні для елемента У першому пункті меню,
-у посилання задані класи,
-що мають мінімум 3 символи,
-всі літери латиницею,
-всі літери маленькі,
-та можуть містити дефіс чи нижнє підкреслення У першому пункті меню у посилання в класі заданий стиль position: relative;
-для встановлення позиціонування елемента відносно його звичайного місця в потоці документу У першому пункті меню у посилання в класі заданий стиль color: #404bbf;
-для визначення кольору тексту До класу з псевдоелементом ::after додана властивість content: '' для встановлення вмісту,
-який має бути відображений в псевдоелементі До класу з псевдоелементом ::after додана властивість position: absolute;
-яка встановлює позиції елемента відносно його батьківського елемента До класу з псевдоелементом ::after додана властивість left: 0;
-для встановлення відстані між лівим краєм елемента і лівим краєм його батьківського елемента До класу з псевдоелементом ::after додана властивість bottom: -1px;
-для встановлення відстані між нижнім краєм елемента і нижнім краєм його батьківського елемента До класу з псевдоелементом ::after додана властивість height: 4px;
-для визначення висоти елемента До класу з псевдоелементом ::after додана властивість background-color: #404bbf;
-для визначення кольору фону елемента До класу з псевдоелементом ::after додана властивість border-radius: 2px;
-для визначення радіусу закруглення кутів елемента У першому пункті меню у посилання в класі заданий стиль transition зі значенням color 250ms cubic-bezier(0.4, 0, 0.2, 1) для плавної зміни кольору текстового контенту У першому пункті списку з контактами у посиланні в класі заданий стиль transition зі значенням color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-для плавної зміни кольору текстового контенту У другому пункті списку з контактами,
-у посиланні,
-використовується такий самий клас як і в посиланні в першому пункті У другому пункті меню,
-у посилання задані класи,
-що мають мінімум 3 символи,
-всі літери латиницею,
-всі літери маленькі,
-та можуть містити дефіс чи нижнє підкреслення У другому пункті списку з контактами у посиланні в класі заданий стиль transition зі значенням color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-для плавної зміни кольору текстового контенту
-*/
+.version:hover {
+  transform: scale(1.2);
+}
+
 /* #region: header */
 .header {
-  position: sticky;
   top: -1;
+  /* position: sticky; */
+  position: fixed;
+  width: 100%;
 
-  /* position: fixed; */
-
+  z-index: 9999;
   background: var(--WHITE, #fff);
-  /* border-bottom: 1px solid #e7e9fc; */
   border-bottom: 1px solid var(--CORNFLOWER, #e7e9fc);
 
-  /* position: relative; */
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
-  /* position: absolute; */
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -179,7 +146,6 @@ img {
 .header-nav-items {
   display: flex;
   gap: 40px;
-  /* padding: 24px 0; */
 }
 
 .header-nav-item {
@@ -201,11 +167,8 @@ img {
 .header-nav-item:hover,
 .header-nav-item:focus {
   color: #404bbf;
-  /* color: darkorange; */
-  /* background-color: #d1d3d8; */
 }
 
-/* .header-nav-item::before {} */
 .main {
   color: #404bbf;
 }
@@ -220,7 +183,6 @@ img {
   background-color: #404bbf;
   border-radius: 2px;
   color: #404bbf;
-  /* transform: translateY(20px); */
   width: 100%;
 }
 
@@ -232,12 +194,6 @@ img {
   font-style: normal;
 }
 
-/* 
-.contacts-items::before {
-  content: "";
-  margin-left: 120px;
-}
-*/
 .address-link,
 .contacts-item {
   /* display: block; */
@@ -260,19 +216,13 @@ img {
 }
 
 /* #endregion: address-contacts */
-
 /* #endregion: header */
 
 /* #region: section-hero  */
 /* url(../images/img-name.jpeg); */
-/* 
-          background-image: 
-          linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-           url(../images/img-name.jpg);
-           */
 
 .hero {
-  /* background-color: #2e2f42;*/
+  width: 1440px;
   margin: 0 auto;
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
@@ -283,7 +233,6 @@ img {
   background-position: center;
   background-color: #2e2f42;
   background-size: cover;
-  max-width: 1440px;
 }
 
 .hero-header {
@@ -326,7 +275,6 @@ img {
 .hero-button:hover,
 .hero-button:focus {
   background-color: #404bbf;
-  /* transform: rotate(111deg) */
 }
 
 /* #endregion: section-hero  */
@@ -335,7 +283,6 @@ img {
 .benefits {
   padding-top: 120px;
   padding-bottom: 120px;
-  /* padding: 120px 0; */
 }
 
 .benefits-items {
@@ -349,7 +296,6 @@ img {
   align-items: center;
 
   height: 112px;
-  /* flex-shrink: 0; */
   border-radius: 4px;
   border: 1px solid var(--LIGHT-SLATE, #8e8f99);
   background: var(--CLOUD, #f4f4fd);
@@ -384,9 +330,6 @@ img {
   width: 40px;
   height: 40px;
 }
-
-/* flex-shrink: 0; */
-/* fill: var(--IRIS, #4D5AE5); */
 
 .social-link {
   display: flex;
@@ -428,34 +371,13 @@ img {
   background-color: #31d0aa;
 }
 
-*/
-/*
-.social-icon:hover,
-.social-icon:focus {
-}
- */
-
-/* .benefits-icon:hover,
-.benefits-icon:focus {
-  fill: red;
-  cursor: pointer;
-} */
-
 .benefits-item {
-  /* width: 240px; */
-  /* flex-basis: calc((100% - 72px) / 4); */
-  width: calc((100% - 72px) / 4);
+  /* width: calc((100% - 72px) / 4); */
+  width: calc((100% - var(--column-gap) * (var(--items) - 1)) / var(--items));
 }
 
 .benefits-item-header {
   margin-bottom: 8px;
-  /* 
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  color: #2e2f42;
-*/
 }
 
 .benefits-item-text {
@@ -471,21 +393,8 @@ img {
 /* #region: section.#3:  Our Team */
 .team {
   background-color: #f4f4fd;
-  /* padding: 120px 0 */
-  /* padding: 120px 0 120px ; */
   padding-top: 120px;
   padding-bottom: 120px;
-
-  /*
-      background-color: #f4f4fd;
-        color: #2e2f42;
-        font-size: 36px;
-        font-weight: 700;
-        line-height: 1.11;
-        letter-spacing: 0.02em;
-        text-transform: capitalize;
-        padding: 120px 0;
-  */
 }
 
 .team-header {
@@ -501,7 +410,6 @@ img {
 
 .team-items {
   display: flex;
-  /* justify-content: center; */
   gap: 24px;
 }
 
@@ -509,32 +417,16 @@ img {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 
-  /* gap: 24px; */
-  /* margin: 12px; */
   background-color: #ffffff;
-
   border-radius: 0px 0px 4px 4px;
-  /*
-  Для першого елементу списку в класі заданий стиль border-radius: 0px 0px 4px 4px;
-    для визначення заокруглень внизу блока (можна використовувати border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-right-radius: 4px; border-bottom-left-radius:4px; )
-    */
 }
 
 .team-item-info {
   text-align: center;
   padding: 32px 0;
-  /*
-  (можна використовувати аналог 
-  padding: 32px 0 32px 
-  або 
-  padding-top: 32px; 
-  padding-bottom: 32px; 
-  )*/
 }
 
-/* ToDo: makw as common class .item-header */
 .team-item-header {
-  /* text-align: center; */
   margin-bottom: 8px;
 
   font-size: 20px;
@@ -545,8 +437,6 @@ img {
 }
 
 .team-item-text {
-  /* text-align: center; */
-
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
@@ -560,14 +450,6 @@ img {
   padding-bottom: 120px;
 }
 
-/*
- .portfolio-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
- */
-
 .portfolio-header {
   font-size: 36px;
   font-weight: 500;
@@ -577,14 +459,12 @@ img {
   letter-spacing: 0.02em;
   text-transform: capitalize;
   margin-bottom: 72px;
-
-  /* padding: 120px 0 120px 0; */
 }
 
 .portfolio-items {
   --items: 3;
+
   display: flex;
-  /* justify-content: space-evenly; */
   flex-wrap: wrap;
   gap: 48px 24px;
   column-gap: 12px;
@@ -598,11 +478,6 @@ img {
 }
 
 .portfolio-item:hover {
-  /* При ховері,
-  в елементі списку,  у класі заданий стиль 
-  box-shadow: зі значенням 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-  для визначення тіні для елемента при наведені мишкою 
-  */
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
@@ -617,7 +492,6 @@ img {
 }
 
 .portfolio-img-overlay {
-  /* .portfolio-item-ing-text { */
   position: absolute;
   top: 0;
   left: 0;
@@ -633,7 +507,6 @@ img {
   letter-spacing: 0.02em;
   background-color: #4d5ae5;
   padding: 40px 32px;
-  height: 100%;
 }
 
 .portfolio-item-info {
@@ -713,6 +586,10 @@ text {
   letter-spacing: 0.02em;
 }
 
+.social-media {
+  margin-right: 80px;
+}
+
 .social-media-header {
   color: var(--WHITE, #fff);
 
@@ -728,88 +605,305 @@ text {
   margin-bottom: 16px;
 }
 
-/*
-.logo-box {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  height: 24px;
-}
-
-.logo-web {
-  color: var(--IRIS, #4D5AE5);
-  font-family: Raleway;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 21px;
-  letter-spacing: 0.54px;
-  text-transform: uppercase;
-}
-
-.logo-span-dark {
-  color: var(--NAVY-BLUE, #2E2F42);
-  font-family: Raleway;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 21px;
-
-  letter-spacing: 0.54px;
-  text-transform: uppercase;
-}
-
-.logo-span-light {
-  color: var(--CLOUD, #F4F4FD);
-  font-family: Raleway;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 21px;
-
-  letter-spacing: 0.54px;
-  text-transform: uppercase;
-}
-*/
 .logo {
   font-size: 18px;
   font-weight: 700;
   font-family: Raleway, sans-serif;
-  /* color: #4d5ae5; */
+
   color: var(--IRIS, #4d5ae5);
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  /* margin-right: 76px; */
 }
 
 .header-logo {
   margin-right: 76px;
 }
 
-/* #region: logo */
-/* 
-.logo {
-  color: #4d5ae5;
-  color: var(--IRIS, #4D5AE5);
-
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.17;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
- */
-/* 
-.header-logo::before {
-  content: "";
-  margin-right: 40px;
-}
- */
-/* 
-.logo>span {
-    color: #2e2f42;
-}
-*/
 /* #endregion: logo */
+
+/* ------------------------------------------ */
+/* #region:subscribe */
+.subscribe {
+  width: 453px;
+}
+
+.subscribe-header {
+  color: var(--WHITE, #fff);
+
+  /* Body Medium */
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 24px;
+}
+
+/* .subscribe-form-label {} */
+
+.subscribe-form-input[id="email"] {
+  width: 264px;
+  height: 40px;
+  border: 1px solid #fff;
+  background-color: transparent;
+
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  padding-left: 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  color: #fff;
+}
+
+.subscribe-form-input::placeholder {
+  columns: #fff;
+}
+
+.subscribe-form-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 165px;
+  height: 40px;
+
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  background-color: #4d5ae5;
+  border: none;
+  border-radius: 4px;
+}
+
+.subscribe-form-svg {
+  margin-left: 16px;
+}
+
+.subscribe-form-submit:hover,
+.subscribe-form-submit:focus {
+  fill: yellow;
+}
+
+/* #endregion:subscribe */
+/* ------------------------------------------ */
+
+/* ------------------------------------------ */
+/* #region:modal */
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 408px;
+  min-height: 584px;
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 72px 24px 24px;
+}
+
+.modal-window-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-window-close:hover,
+.modal-window-close:focus {
+  background-color: #404bbf;
+  border: none;
+}
+
+.modal-window-close-svg {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* для плавної зміни кольору */
+
+.modal-window-close:hover .modal-window-close-svg,
+.modal-window-close:focus .modal-window-close-svg {
+  fill: #ffffff;
+}
+
+.modal-window-header {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
+  margin-bottom: 16px;
+}
+
+/* modal-form */
+.modal-form-input-box {
+  margin-bottom: 8px;
+}
+
+.modal-form-label {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.modal-form-div {
+  position: relative;
+}
+
+.modal-form-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  background-color: transparent;
+  padding-left: 38px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-button {
+  display: block;
+  min-width: 169px;
+  height: 56px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  cursor: pointer;
+  background-color: #4d5ae5;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin: auto;
+}
+
+/* .modal-form-input-svg */
+.modal-form-svg {
+  width: 18px;
+  height: 24px;
+  position: absolute;
+
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-input:hover + svg,
+.modal-form-input:focus + svg {
+  fill: #4d5ae5;
+}
+
+/* modal-form-textarea-box */
+.modal-form-textarea-box {
+  margin-bottom: 16px;
+}
+
+.modal-form-textarea {
+  width: 100%;
+  height: 120px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 8px 16px;
+  outline: transparent;
+  resize: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-textarea:hover,
+.modal-form-textarea:focus,
+.modal-form-input:hover,
+.modal-form-input:focus {
+  border-color: #4d5ae5;
+}
+
+.modal-form-checkbox-box {
+  margin-bottom: 24px;
+}
+
+.modal-form-checkbox-label {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+}
+
+.modal-form-checkbox-label-span {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: transparent;
+}
+
+.modal-form-checkbox-link {
+  color: #4d5ae5;
+}
+
+input[type="checkbox"]:checked + label > span {
+  background-color: #404bbf;
+  fill: #f4f4fd;
+  border: none;
+}
